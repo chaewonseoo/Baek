@@ -19,6 +19,7 @@ if __name__ == '__main__':
         if num_cnt.get(i) == mode_num:
             mode.append(i)
 
+
     # 출력
     print(average, median, sep='\n')
     if len(mode) < 2:
