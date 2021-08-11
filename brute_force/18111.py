@@ -22,3 +22,4 @@ if __name__ == '__main__':
             ans = time
             height = i
     print(ans, height)
+
