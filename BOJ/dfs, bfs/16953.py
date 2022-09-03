@@ -3,26 +3,20 @@ from collections import deque
 
 
 def dfs(node, node2):
-    global answer
-    global flag
     queue = deque()
-    queue.append(node)
+    queue.append((node, 1))
     while queue:
-        x = queue.popleft()
+        x, t = queue.popleft()
+        if x > node2:
+            continue
         if x == node2:
-            flag = True
-            print(answer)
+            print(t)
             break
-        x1 = x * 2
-        x2 = x * 10 + 1
-        answer += 1
-        if x1 <= node2:
-            dfs(x1, node2)
-        if x2 <= node2:
-            dfs(x2, node2)
+        queue.append((x * 2, t + 1))
+        queue.append((x * 10 + 1, t + 1))
     else:
         print(-1)
 
+
 A, B = map(int, sys.stdin.readline().split())
-answer = 1
-dfs(A, B, answer)
+dfs(A, B)
